@@ -16,4 +16,4 @@ jobs:
       run: echo "my name is ahmad" > ahmad.txt
 
     - name: Copy File to Local Machine
-      run: cp ahmad.txt /home/ahmad/Test_action_github
+      run: cp ahmad.txt /home/ahmad/my_scripts
