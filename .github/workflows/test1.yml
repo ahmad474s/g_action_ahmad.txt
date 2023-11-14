@@ -13,4 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Clone Project 
-      run: git clone https://github.com/ahmad474s/g_action_ahmad.txt.git /home/ahmad/my_scripts
+      run: |
+            cd /home/ahmad/my_scripts
+            git pull origin main
+
