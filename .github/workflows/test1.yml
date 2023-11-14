@@ -16,4 +16,4 @@ jobs:
       run: echo "my name is ahmad" > ahmad.txt
 
     - name: Copy File to Local Machine
-      run: cp ahmad.txt ${{ runner.workspace }}
+      run: cp ahmad.txt /home/ahmad/Test_action_github
