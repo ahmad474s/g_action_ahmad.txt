@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "My Name is Ahmad"
+echo "My Name is M Ahmad"
