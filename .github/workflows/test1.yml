@@ -16,10 +16,4 @@ jobs:
         run: echo "my name is Ahmad" > ahmad.txt
 
       - name: Copy File to Local Machine
-        uses: appleboy/scp-action@v2
-        with:
-          host: ${{ secrets.H_NAME_I }}
-          username: ${{ secrets.H_NAME }}
-          key: ${{ secrets.G_ACTION_PUBKEY }}
-          source: ahmad.txt
-          target: /home/ahmad/Test_action_github
+        run: scp -i ${{ secrets.G_ACTION_PUBKEY }} ahmad.txt ${{ secrets.H_NAME }}@${{ secrets.H_NAME_I }}:/path/on/local/machine/
