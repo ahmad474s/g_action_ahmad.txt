@@ -16,7 +16,7 @@ jobs:
         run: echo "my name is Ahmad" > ahmad.txt
 
       - name: Copy File to Local Machine
-        uses: appleboy/scp-action@v0.3.0
+        uses: appleboy/scp-action@v2
         with:
           host: ${{ secrets.H_NAME_I }}
           username: ${{ secrets.H_NAME }}
