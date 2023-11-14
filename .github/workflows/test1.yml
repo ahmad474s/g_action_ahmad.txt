@@ -43,14 +43,14 @@ jobs:
 
     - name: Configure MySQL
       run: |
-        echo "ALTER USER 'ahmad'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY '9089';" | sudo mysql
+        echo "ALTER USER 'farhan'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY '9089';" | sudo mysql
         echo "FLUSH PRIVILEGES;" | sudo mysql
 
     - name: Create Database for Laravel
       run: |
         sudo mysql -e "CREATE DATABASE IF NOT EXISTS test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-        sudo mysql -e "CREATE USER 'ahmad'@'localhost' IDENTIFIED BY '9089';"
-        sudo mysql -e "GRANT ALL PRIVILEGES ON test.* TO 'ahmad'@'localhost';"
+        sudo mysql -e "CREATE USER 'farhan'@'localhost' IDENTIFIED BY '9089';"
+        sudo mysql -e "GRANT ALL PRIVILEGES ON test.* TO 'farhan'@'localhost';"
         sudo mysql -e "FLUSH PRIVILEGES;"
 
     - name: Display MySQL Version
