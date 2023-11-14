@@ -12,8 +12,5 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Create Ahmad.txt File
-      run: echo "my name is ahmad" > ahmad.txt
-
-    - name: Copy File to Local Machine
-      run: cp ahmad.txt /home/ahmad/my_scripts
+    - name: Clone Project 
+      run: git clone https://github.com/ahmad474s/g_action_ahmad.txt.git /home/ahmad/my_scripts
