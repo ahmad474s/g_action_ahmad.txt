@@ -1,4 +1,4 @@
-name: Install Dependencies
+name: Setup Server Environment
 
 on:
   push:
@@ -6,23 +6,22 @@ on:
       - main
 
 jobs:
-  install:
-    runs-on: self-hosted
+  setup:
+    runs-on: [self-hosted, ubuntu-20.04]
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
     - name: Update apt
       run: sudo apt update -y
 
-    - name: Install PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4' # Choose your PHP version
+    - name: Install Apache2
+      run: sudo apt install -y apache2
 
-    - name: Display PHP Version
-      run: php --version
+    - name: Install PHP and Extensions
+      run: |
+        sudo apt install -y php7.4 php7.4-{cli,common,bcmath,zip,mysql,xml,curl}
+        
+    - name: Install MySQL Server
+      run: sudo apt install -y mysql-server
 
     - name: Install Composer
       run: |
@@ -31,5 +30,8 @@ jobs:
         php composer.phar
         sudo mv composer.phar /usr/local/bin/composer
 
-    - name: Display Composer Version
-      run: composer --version
+    - name: Install Git
+      run: sudo apt install -y git
+
+    - name: Install Unzip
+      run: sudo apt install -y unzip
