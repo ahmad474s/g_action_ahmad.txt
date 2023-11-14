@@ -1,4 +1,4 @@
-name: Copy Ahmad.txt File
+name: Install Dependencies
 
 on:
   push:
@@ -6,14 +6,30 @@ on:
       - main
 
 jobs:
-  copy-file:
+  install:
     runs-on: self-hosted
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Clone Project 
-      run: |
-            sudo apt get update
-            sudo apt install php
+    - name: Update apt
+      run: sudo apt update -y
 
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4' # Choose your PHP version
+
+    - name: Display PHP Version
+      run: php --version
+
+    - name: Install Composer
+      run: |
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php -r "if (hash_file('sha384', 'composer-setup.php') === 'YOUR_SHA384_HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+        php -r "unlink('composer-setup.php');"
+
+    - name: Display Composer Version
+      run: composer --version
