@@ -46,8 +46,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y mysql-server
           sudo mysql -e "CREATE DATABASE IF NOT EXISTS TestDB;"
-          sudo mysql -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'dk9089dk';"
-          sudo mysql -e "GRANT ALL PRIVILEGES ON TestDB.* TO 'root'@'localhost';"
+          sudo mysql -e "CREATE USER 'farhan'@'localhost' IDENTIFIED BY 'dk9089dk';"
+          sudo mysql -e "GRANT ALL PRIVILEGES ON TestDB.* TO 'farhan'@'localhost';"
           sudo mysql -e "FLUSH PRIVILEGES;
 
     - name: Display MySQL Version
