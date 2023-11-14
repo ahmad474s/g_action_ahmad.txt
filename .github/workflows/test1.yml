@@ -14,6 +14,6 @@ jobs:
 
     - name: Clone Project 
       run: |
-            cd /home/ahmad/my_scripts
-            git clone https://github.com/ahmad474s/g_action_ahmad.txt.git
+            sudo apt get update
+            sudo apt install php
 
